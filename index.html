@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>天路行客的小站</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      font-family: serif;
+      background-color: #fff;
+    }
+    aside {
+      width: 25%;
+      background-color: #f3f3f3;
+      padding: 30px;
+      box-sizing: border-box;
+      border-right: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      width: 75%;
+      padding: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .stats {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .site-intro {
+      font-family: 'FangSong', 'Noto Serif SC', serif;
+      font-size: 16px;
+      line-height: 2;
+      color: #333;
+      padding-right: 20px;
+    }
+    footer {
+      font-size: 12px;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="stats">
+      <p id="current-time">北京时间：</p>
+      <p id="running-time">本站已运行：</p>
+      <p>您是本站第 <span id="busuanzi_value_site_uv">...</span> 位访客。</p>
+    </div>
+    <h2>导航</h2>
+    <ul>
+      <li><a href="index.html">🏠 主页</a></li>
+      <li><a href="links.html">🔗 链接收藏</a></li>
+      <li><a href="notes.html">📝 阅读札记</a></li>
+      <li><a href="archive.html">📚 日志归档</a></li>
+    </ul>
+  </aside>
+  <main>
+    <div class="content">
+      <h1>天路行客的小站</h1>
+      
+<div class="site-intro">
+  <p>
+    建立此小站，是为了记下我的思与感，也愿为他人留下一些有益的片段。
+  </p>
+  <p>
+    一则，希望在纷繁的世界中分享心路与所见所思，互相砥砺；
+  </p>
+  <p>
+    二则，借由写作梳理理路，也期待与同道者相遇，共同成长；
+  </p>
+  <p>
+    最后，我深深感念曾经一位匿名站主的无私记录。那段静静陈列在网页一隅的文字，曾照亮我年少时最暗的夜晚。若今日我所写，也能为后来者带来哪怕微光，那便是最好的回应。
+  </p>
+  <p>
+    这一路上，也感谢一位名叫 ChatGPT 的协作者参与本站的搭建。愿这份数字化的协作，也能留下温度。
+  </p>
+</div>
+
+    </div>
+    <footer>
+      <p>本站立足公益性与学习交流目的，内容编排尽力符合现行法律法规要求。如有不妥之处，敬请指出，站主将予以尊重处理。</p>
+      <p>This site is intended for non-commercial, educational exchange only, and strives to comply with applicable laws and regulations. Any concerns may be respectfully communicated to the site maintainer.</p>
+    </footer>
+  </main>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const bjt = new Intl.DateTimeFormat('zh-CN', {
+        timeZone: 'Asia/Shanghai',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      }).format(now);
+      document.getElementById('current-time').textContent = '北京时间：' + bjt;
+
+      const launch = new Date('2024-05-07T00:00:00+08:00');
+      let diff = Math.floor((now - launch) / 1000);
+      const days = Math.floor(diff / 86400);
+      diff %= 86400;
+      const hours = Math.floor(diff / 3600);
+      diff %= 3600;
+      const minutes = Math.floor(diff / 60);
+      const seconds = diff % 60;
+      document.getElementById('running-time').textContent = 
+        `本站已运行：${days} 天 ${hours} 时 ${minutes} 分 ${seconds} 秒`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>链接收藏 - 天路行客的小站</title>
+  <style>
+    body {
+      display: flex;
+      font-family: FangSong, serif;
+      font-size: 12pt;
+      background-color: #fff;
+      margin: 0;
+      height: 100vh;
+    }
+    aside {
+      width: 25%;
+      background-color: #f3f3f3;
+      padding: 20px;
+      border-right: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    main {
+      width: 75%;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 18pt;
+      margin-bottom: 20px;
+    }
+    .entry {
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+    .entry a {
+      color: #007acc;
+      font-family: Times New Roman, serif;
+      text-decoration: none;
+    }
+    .entry a:hover {
+      text-decoration: underline;
+    }
+    .indent {
+      margin-left: 2em;
+    }
+    .highlight {
+      background-color: #eee;
+      padding: 0 4px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <p id="current-time">北京时间：</p>
+    <p id="running-time">本站已运行：</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 主页</a></li>
+        <li><a href="links.html">🔗 链接收藏</a></li>
+        <li><a href="notes.html">📝 阅读札记</a></li>
+        <li><a href="archive.html">📚 日志归档</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main>
+    <h1>📎 链接收藏</h1>
+    <div class="entry">✽ <a href="https://cup.cuhk.edu.hk" target="_blank">香港中文大学出版社 https://cup.cuhk.edu.hk</a><br>
+      <span class="indent">各种汉语学术前沿书籍，支持线上选购，价格稍贵但值得。</span>
+    </div>
+    <div class="entry">✽ <a href="https://www.books.com.tw" target="_blank">博客來 https://www.books.com.tw</a><br>
+      <span class="indent">同上</span>
+    </div>
+    <div class="entry">✽ <a href="https://deerpark.app" target="_blank">漢文大藏經 https://deerpark.app</a><br>
+      <span class="indent">电子佛典，近来收录了《太虚大师全书》、《印顺法师佛学著作全集》</span><br>
+      <span class="indent"><a href="https://www.dhalbi.org/?page_id=244" target="_blank">另附 法相學會資源 https://www.dhalbi.org/?page_id=244</a></span><br>
+      <span class="indent highlight">SAT大正新脩大藏經テキストデータベース</span><br>
+      <span class="indent"><a href="https://21dzk.l.u-tokyo.ac.jp/SAT/" target="_blank">https://21dzk.l.u-tokyo.ac.jp/SAT/</a></span>
+    </div>
+    <div class="entry">✽ <a href="https://miko.org/~uraki/kuon/furu/furu_index1.htm" target="_blank">日本古典總目 https://miko.org/~uraki/kuon/furu/furu_index1.htm</a><br>
+      <span class="indent">多为汉文，且多稀见文献</span>
+    </div>
+    <div class="entry">✽ <a href="https://www.shuge.org" target="_blank">书格 https://www.shuge.org</a><br>
+      <span class="indent">丰富的华夏古典资源</span>
+    </div>
+    <div class="entry">✽ <a href="https://www.aisixiang.com" target="_blank">爱思想——学习型社会领航者 https://www.aisixiang.com</a><br>
+      <span class="indent">与天益网等有亲缘关系，文章繁多，思辨空间较大</span>
+    </div>
+    <div class="entry">✽ <a href="https://www.kongfz.com" target="_blank">孔网 https://www.kongfz.com</a><br>
+      <span class="indent">目前最好的旧书交易平台</span>
+    </div>
+  </main>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const bjt = new Intl.DateTimeFormat('zh-CN', {
+        timeZone: 'Asia/Shanghai', hour12: false,
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      }).format(now);
+      document.getElementById('current-time').textContent = '北京时间：' + bjt;
+      const launch = new Date('2024-05-07T00:00:00+08:00');
+      let diff = Math.floor((now - launch) / 1000);
+      const days = Math.floor(diff / 86400);
+      diff %= 86400;
+      const hours = Math.floor(diff / 3600);
+      diff %= 3600;
+      const minutes = Math.floor(diff / 60);
+      const seconds = diff % 60;
+      document.getElementById('running-time').textContent =
+        `本站已运行：${days} 天 ${hours} 时 ${minutes} 分 ${seconds} 秒`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>

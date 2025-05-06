@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>链接收藏 - 天路行客的小站</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      font-family: serif;
+      background-color: #fff;
+    }
+    aside {
+      width: 25%;
+      background-color: #f3f3f3;
+      padding: 30px;
+      box-sizing: border-box;
+      border-right: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      width: 75%;
+      padding: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .stats {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .content {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    footer {
+      font-size: 12px;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="stats">
+      <p id="current-time">北京时间：</p>
+      <p id="running-time">本站已运行：</p>
+      <p>您是本站第 <span id="busuanzi_value_site_uv">...</span> 位访客。</p>
+    </div>
+    <h2>导航</h2>
+    <ul>
+      <li><a href="index.html">🏠 主页</a></li>
+      <li><a href="links.html">🔗 链接收藏</a></li>
+      <li><a href="notes.html">📝 阅读札记</a></li>
+      <li><a href="archive.html">📚 日志归档</a></li>
+    </ul>
+  </aside>
+  <main>
+    <div class="content">
+      <h1>📎 链接收藏</h1>
+      <p>此页收录本人阅读、研修过程中常用的重要网站与学术资料来源，涵盖宗教文献、哲学资源、学术期刊等，分类不设限，仅依使用频率与价值整理之。</p>
+      <ul style='list-style-type:none; font-family: "FangSong", serif; font-size: 16px; line-height: 2;'>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>有用的链接</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>香港中文大学出版社</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>各种汉语学术前沿书籍，支持线上选购，价格稍贵但值得</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>博客來</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>同上</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>漢文大藏經</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>电子佛典，近来收录了《太虚大师全书》、《印顺法师佛学著作全集》</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>另附 法相學會資源</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>SAT大正新脩大藏經テキストデータベース</li>
+<li>✽ <a href="https://21dzk.l.u-tokyo.ac.jp/SAT/" target="_blank" style="font-family:'Times New Roman',serif;"></a></li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>️ 日本古典總目</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>多为汉文，且多稀见文献</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>书格</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>丰富的华夏古典资源</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>️ 爱思想——学习型社会领航者</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>与天益网等有亲缘关系，文章繁多，思辨空间较大</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>孔网</li>
+<li style='margin-left:1.5em; font-size: 14px; color: #555;'>目前最好的旧书交易平台</li>
+</ul>
+    </div>
+    <footer>
+      <p>本站立足公益性与学习交流目的，内容编排尽力符合现行法律法规要求。如有不妥之处，敬请指出，站主将予以尊重处理。</p>
+      <p>This site is intended for non-commercial, educational exchange only, and strives to comply with applicable laws and regulations. Any concerns may be respectfully communicated to the site maintainer.</p>
+    </footer>
+  </main>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const bjt = new Intl.DateTimeFormat('zh-CN', {
+        timeZone: 'Asia/Shanghai',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      }).format(now);
+      document.getElementById('current-time').textContent = '北京时间：' + bjt;
+
+      const launch = new Date('2024-05-07T00:00:00+08:00');
+      let diff = Math.floor((now - launch) / 1000);
+      const days = Math.floor(diff / 86400);
+      diff %= 86400;
+      const hours = Math.floor(diff / 3600);
+      diff %= 3600;
+      const minutes = Math.floor(diff / 60);
+      const seconds = diff % 60;
+      document.getElementById('running-time').textContent =
+        `本站已运行：${days} 天 ${hours} 时 ${minutes} 分 ${seconds} 秒`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>
